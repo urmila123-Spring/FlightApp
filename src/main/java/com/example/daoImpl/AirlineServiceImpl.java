@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.employee.exceptions.AirlineNotFoundException;
+import com.example.exceptions.AirlineNotFoundException;
 import com.example.model.Flight;
 import com.example.repository.FlightRepository;
 

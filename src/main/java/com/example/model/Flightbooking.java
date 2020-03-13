@@ -1,36 +1,46 @@
 package com.example.model;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 
 
 @Entity 
-@Table(name ="flightbooking")
+
 
 public class Flightbooking {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
-	@ManyToMany(mappedBy = "flightbookings", fetch = FetchType.LAZY)
-	private Set<Flight> flights;
-	
-
-	@ManyToOne
-	private Passenger passenger;
-    
 	private int flightbookingId;
-	private int airlineId;
+	
+	 @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+	    @JoinTable(name = "booking_flights",
+	    joinColumns = @JoinColumn(name="flightbooking_id"),
+	    inverseJoinColumns = @JoinColumn(name="airline_id")
+	    )
+	 
+	 private Set<Flight> flights;
+		
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+    @JoinTable(name = "passenger_flights",
+    joinColumns = @JoinColumn(name="flightbookingId"),
+    inverseJoinColumns = @JoinColumn(name="passengerid")
+    )
+	
+   private  List<Passenger> passenger;
+   private int airlineId;
 	
 	private int passengerId;
 	

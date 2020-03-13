@@ -16,10 +16,6 @@ import com.example.model.Flight;
 @RestController
 @RequestMapping("airline")
 public class AirlineController {
-	
-	
-	
-	
 	@Autowired
 	private AirlineServiceImpl airServiceImpl;
 	

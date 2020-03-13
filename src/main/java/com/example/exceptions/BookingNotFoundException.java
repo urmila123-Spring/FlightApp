@@ -1,4 +1,4 @@
-package com.employee.exceptions;
+package com.example.exceptions;
 
 public class BookingNotFoundException extends RuntimeException {
 	

@@ -1,4 +1,4 @@
-package com.employee.springbootswagger2.config;
+package com.example.springbootswagger2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

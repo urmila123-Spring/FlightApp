@@ -7,21 +7,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 
-@Table(name="user")
+
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "userId")
     private Passenger passenger;
-    @NotNull(message="user  shouldnt  empty")
+    @NotNull(message="user  should not  be empty")
 	private String userName;
+    @NotNull(message="password  should not  be empty")
 	private String password;
 	public int getUserId() {
 		return userId;
